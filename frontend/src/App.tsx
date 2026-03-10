@@ -19,7 +19,7 @@ function App() {
       console.log("Received message: ", message.data);
       setMessages((messages) => [...messages, message.data])
     }
-
+    return () => socket.close();
   }, []);
 
   if (!socket) return <div>Connecting to Socket Server...</div>
